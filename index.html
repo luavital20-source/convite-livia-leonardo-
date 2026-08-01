@@ -725,10 +725,6 @@
           <option value="4">Família (4 pessoas)</option>
         </select>
       </div>
-      <div class="field-group">
-        <label>Restrição alimentar?</label>
-        <input type="text" id="food-restriction" placeholder="Nenhuma / Vegetariano / etc">
-      </div>
       <div style="margin-top: 24px;">
         <button class="btn-primary" style="width:100%" onclick="submitRSVP()">Confirmar ✓</button>
       </div>
@@ -819,12 +815,10 @@ document.getElementById('splash').addEventListener('click', function(){
     const name = document.getElementById('guest-name').value.trim();
     if (!name) { document.getElementById('guest-name').focus(); return; }
     const count = document.getElementById('guest-count');
-    const food  = document.getElementById('food-restriction').value.trim();
     if (WHATSAPP) {
       const msg = 'Confirmação de presença — Casamento Livia & Leonardo (24/10/2026)'
                 + '\nNome: ' + name
-                + '\nPessoas: ' + count.options[count.selectedIndex].text
-                + (food ? '\nRestrição alimentar: ' + food : '');
+                + '\nPessoas: ' + count.options[count.selectedIndex].text;
       window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(msg), '_blank');
     }
     document.getElementById('rsvp-form-content').style.display = 'none';
